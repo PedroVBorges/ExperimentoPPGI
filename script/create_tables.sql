@@ -9,7 +9,7 @@ CREATE TABLE services(
     name VARCHAR (200),
     id_user integer NOT NULL,
     CONSTRAINT pk_services PRIMARY KEY (id),
-    CONSTRAINT fk_services_users foreign key (id_user) references users(id)
+    CONSTRAINT fk_services_users foreign key (id_user) references users(id) ON DELETE CASCADE
 );
 
 CREATE TABLE requisitions(
@@ -17,5 +17,5 @@ CREATE TABLE requisitions(
     description VARCHAR (200),
     id_service integer NOT NULL,
     CONSTRAINT pk_requisitions PRIMARY KEY (id),
-    CONSTRAINT fk_requisitions_services foreign key (id_service) references services(id)
+    CONSTRAINT fk_requisitions_services foreign key (id_service) references services(id) ON DELETE CASCADE
 );
